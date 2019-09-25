@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package utility;
 import java.util.regex.Pattern;
 
 import org.json.JSONArray;
@@ -31,19 +29,7 @@ public class JsonExtractor {
 		else {
 			return obj.get(keys[length-1]).toString();
 		}
-	}
-	public static void main(String[] a) throws IOException {
-		@SuppressWarnings("resource")
-		BufferedReader br = new BufferedReader(new FileReader("data.json"));
-		String data="";
-		while(br.ready()) {
-			data = data + br.readLine();
-		}
-		//System.out.println(data);
-		String s = new JsonExtractor().dataExtract(data, "['menu']['popup']['menuitem'][1]");
-		System.out.println(s);
-	}
-	
+	}	
 	private JSONObject getJsonObject(String key) {
 		return obj.getJSONObject(key);
 	}
